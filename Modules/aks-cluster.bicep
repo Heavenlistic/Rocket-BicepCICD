@@ -1,4 +1,4 @@
-param location string
+param location string = resourceGroup().location
 param clusterName string
 
 param nodeCount int = 3
