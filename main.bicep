@@ -56,9 +56,9 @@ module privateEndPoint 'Modules/privateEndpoint.bicep' = {
 
 module aks 'Modules/aks-cluster.bicep' = {
   name: '${resourcePrefix}cluster'
-  scope: rg
+  scope: aks
   params: {
-    location: location
+    location: location string = resourceGroup().location
     clusterName: resourcePrefix
   }
 }
