@@ -1,9 +1,9 @@
-# name: Bicep-StorageAccount-PrivateEndpoint
+name: Bicep-StorageAccount-PrivateEndpoint
 trigger:
 - main
 
 variables:
-  resourceGroupName: 'rg-bicep'
+  resourceGroupName: 'test-bicep'
   location: 'westeurope'
   azureSubscription: 'azure-azureDevops'
   resourcePrefix: 'bicep'
