@@ -56,7 +56,7 @@ module privateEndPoint 'Modules/privateEndpoint.bicep' = {
 
 module aks 'Modules/aks-cluster.bicep' = {
   name: '${resourcePrefix}cluster'
-  scope: aks
+  scope: vnet
   params: {
     location: location string = resourceGroup().location
     clusterName: resourcePrefix
