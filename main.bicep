@@ -54,7 +54,7 @@ module privateEndPoint 'Modules/privateEndpoint.bicep' = {
   }
 }
 
-module aks './aks-cluster.bicep' = {
+module aks 'Modules/aks-cluster.bicep' = {
   name: '${resourcePrefix}cluster'
   scope: rg
   params: {
