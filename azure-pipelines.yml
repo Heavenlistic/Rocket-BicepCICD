@@ -1,4 +1,4 @@
-name: Bicep-StorageAccount-PrivateEndpoint
+# name: Bicep-StorageAccount-PrivateEndpoint
 trigger:
 - main
 
