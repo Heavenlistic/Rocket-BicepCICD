@@ -54,11 +54,11 @@ module privateEndPoint 'Modules/privateEndpoint.bicep' = {
   }
 }
 
-########################
-targetScope = 'subscription'
 
-param location string = 'eastus'
-param resourcePrefix string = 'aksbicep1'
+targetScope = 'resourceGroup'
+
+// param location string = 'eastus'
+// param resourcePrefix string = 'aksbicep1'
 
 var resourceGroupName = '${resourcePrefix}-rg'
 
