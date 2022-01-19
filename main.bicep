@@ -54,11 +54,24 @@ module privateEndPoint 'Modules/privateEndpoint.bicep' = {
   }
 }
 
-module aks 'Modules/aks-cluster.bicep' = {
+########################
+targetScope = 'subscription'
+
+param location string = 'eastus'
+param resourcePrefix string = 'aksbicep1'
+
+var resourceGroupName = '${resourcePrefix}-rg'
+
+resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
+  name: resourceGroupName
+  location: location
+}
+
+module aks './aks-cluster.bicep' = {
   name: '${resourcePrefix}cluster'
-  scope: vnet
+  scope: rg
   params: {
-    location: location string = resourceGroup().location
+    location: location
     clusterName: resourcePrefix
   }
 }
