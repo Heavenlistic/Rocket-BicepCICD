@@ -67,11 +67,11 @@ module privateEndPoint 'Modules/privateEndpoint.bicep' = {
 //   location: location
 // }
 
-// module aks './aks-cluster.bicep' = {
-//   name: '${resourcePrefix}cluster'
-//   scope: rg
-//   params: {
-//     location: location
-//     clusterName: resourcePrefix
-//   }
-// }
+module aks './aks-cluster.bicep' = {
+  name: '${resourcePrefix}cluster'
+  scope: rg
+  params: {
+    location: location
+    clusterName: resourcePrefix
+  }
+}
