@@ -53,25 +53,59 @@ module privateEndPoint 'Modules/privateEndpoint.bicep' = {
     subnetName: subnetname
   }
 }
-
-
-// targetScope = 'subscription'
-
-// // param location string = 'eastus'
-// // param resourcePrefix string = 'aksbicep1'
-
-// var resourceGroupName = '${resourcePrefix}-rg'
-
-// resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
-//   name: resourceGroupName
-//   location: location
-// }
-
-module aks './aks-cluster.bicep' = {
-  name: '${resourcePrefix}cluster'
-  scope: rg
+module logAnalytics 'Modules/log-analytics.bicep' = {
+  name: 'log-analytics.bicep'
   params: {
     location: location
-    clusterName: resourcePrefix
+    logAnalyticsWorkspaceName: logAnalyticsWorkspaceName
+    logAnalyticsSku: logAnalyticsSku
+    logAnalyticsRetentionInDays: logAnalyticsRetentionInDays
+  }
+}
+module aks 'Modules/aks-cluster.bicep' = {
+  name: 'aks'
+  params: {
+    location: location
+
+    aadEnabled: aadEnabled
+    aadProfileAdminGroupObjectIDs: aadProfileAdminGroupObjectIDs
+    aadProfileEnableAzureRBAC: aadProfileEnableAzureRBAC
+    aadProfileManaged: aadProfileManaged
+    aadProfileTenantId: aadProfileTenantId
+    aksClusterAdminUsername: aksClusterAdminUsername
+    aksClusterDnsPrefix: aksClusterDnsPrefix
+    aksClusterDnsServiceIP: aksClusterDnsServiceIP
+    aksClusterDockerBridgeCidr: aksClusterDockerBridgeCidr
+    aksClusterEnablePrivateCluster: aksClusterEnablePrivateCluster
+    aksClusterKubernetesVersion: aksClusterKubernetesVersion
+    aksClusterLoadBalancerSku: aksClusterLoadBalancerSku
+    aksClusterName: aksClusterName
+    aksClusterNetworkPlugin: aksClusterNetworkPlugin
+    aksClusterNetworkPolicy: aksClusterNetworkPolicy
+    aksClusterPodCidr: aksClusterPodCidr
+    aksClusterServiceCidr: aksClusterServiceCidr
+    aksClusterSkuTier: aksClusterSkuTier
+    aksClusterSshPublicKey: aksClusterSshPublicKey
+    aksClusterTags: aksClusterTags
+    aksSubnetName: aksSubnetName
+
+    nodePoolAvailabilityZones: nodePoolAvailabilityZones
+    nodePoolCount: nodePoolCount
+    nodePoolEnableAutoScaling: nodePoolEnableAutoScaling
+    nodePoolMaxCount: nodePoolMaxCount
+    nodePoolMaxPods: nodePoolMaxPods
+    nodePoolMinCount: nodePoolMinCount
+    nodePoolMode: nodePoolMode
+    nodePoolName: nodePoolName
+    nodePoolNodeLabels: nodePoolNodeLabels
+    nodePoolNodeTaints: nodePoolNodeTaints
+    nodePoolOsDiskSizeGB: nodePoolOsDiskSizeGB
+    nodePoolOsType: nodePoolOsType
+    nodePoolScaleSetPriority: nodePoolScaleSetPriority
+    nodePoolType: nodePoolType
+    nodePoolVmSize: nodePoolVmSize
+
+    virtualNetworkId: vnet.outputs.virtualNetworkResourceId
+    logAnalyticsWorkspaceId: logAnalytics.outputs.logAnalyticsWorkspaceId
   }
 }
