@@ -109,3 +109,11 @@ module privateEndPoint 'Modules/privateEndpoint.bicep' = {
 //     logAnalyticsWorkspaceId: logAnalytics.outputs.logAnalyticsWorkspaceId
 //   }
 // }
+module aks './aks-cluster.bicep' = {
+  name: '${resourcePrefix}cluster'
+  scope: rg
+  params: {
+    location: location
+    clusterName: resourcePrefix
+  }
+}
