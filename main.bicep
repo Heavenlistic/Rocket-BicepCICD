@@ -53,67 +53,12 @@ module privateEndPoint 'Modules/privateEndpoint.bicep' = {
     subnetName: subnetname
   }
 }
-// module logAnalytics 'Modules/log-analytics.bicep' = {
-//   name: 'log-analytics.bicep'
-//   params: {
-//     location: location
-//     logAnalyticsWorkspaceName: logAnalyticsWorkspaceName
-//     logAnalyticsSku: logAnalyticsSku
-//     logAnalyticsRetentionInDays: logAnalyticsRetentionInDays
-//   }
-// }
-// module aks 'Modules/aks-cluster.bicep' = {
-//   name: 'aks'
-//   params: {
-//     location: location
 
-//     aadEnabled: aadEnabled
-//     aadProfileAdminGroupObjectIDs: aadProfileAdminGroupObjectIDs
-//     aadProfileEnableAzureRBAC: aadProfileEnableAzureRBAC
-//     aadProfileManaged: aadProfileManaged
-//     aadProfileTenantId: aadProfileTenantId
-//     aksClusterAdminUsername: aksClusterAdminUsername
-//     aksClusterDnsPrefix: aksClusterDnsPrefix
-//     aksClusterDnsServiceIP: aksClusterDnsServiceIP
-//     aksClusterDockerBridgeCidr: aksClusterDockerBridgeCidr
-//     aksClusterEnablePrivateCluster: aksClusterEnablePrivateCluster
-//     aksClusterKubernetesVersion: aksClusterKubernetesVersion
-//     aksClusterLoadBalancerSku: aksClusterLoadBalancerSku
-//     aksClusterName: aksClusterName
-//     aksClusterNetworkPlugin: aksClusterNetworkPlugin
-//     aksClusterNetworkPolicy: aksClusterNetworkPolicy
-//     aksClusterPodCidr: aksClusterPodCidr
-//     aksClusterServiceCidr: aksClusterServiceCidr
-//     aksClusterSkuTier: aksClusterSkuTier
-//     aksClusterSshPublicKey: aksClusterSshPublicKey
-//     aksClusterTags: aksClusterTags
-//     aksSubnetName: aksSubnetName
-
-//     nodePoolAvailabilityZones: nodePoolAvailabilityZones
-//     nodePoolCount: nodePoolCount
-//     nodePoolEnableAutoScaling: nodePoolEnableAutoScaling
-//     nodePoolMaxCount: nodePoolMaxCount
-//     nodePoolMaxPods: nodePoolMaxPods
-//     nodePoolMinCount: nodePoolMinCount
-//     nodePoolMode: nodePoolMode
-//     nodePoolName: nodePoolName
-//     nodePoolNodeLabels: nodePoolNodeLabels
-//     nodePoolNodeTaints: nodePoolNodeTaints
-//     nodePoolOsDiskSizeGB: nodePoolOsDiskSizeGB
-//     nodePoolOsType: nodePoolOsType
-//     nodePoolScaleSetPriority: nodePoolScaleSetPriority
-//     nodePoolType: nodePoolType
-//     nodePoolVmSize: nodePoolVmSize
-
-//     virtualNetworkId: vnet.outputs.virtualNetworkResourceId
-//     logAnalyticsWorkspaceId: logAnalytics.outputs.logAnalyticsWorkspaceId
-//   }
-// }
-module aks './aks-cluster.bicep' = {
+module akscluster 'Modules/akscluster.bicep' = {
   name: '${resourcePrefix}cluster'
-  scope: rg
+  // scope: rg
   params: {
-    location: location
+    // location: location
     clusterName: resourcePrefix
   }
 }

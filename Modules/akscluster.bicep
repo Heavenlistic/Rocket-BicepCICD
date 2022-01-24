@@ -237,8 +237,9 @@
 //     }
 //   }
 // }
-param location string
+// param location string
 param clusterName string
+param location string = resourceGroup().location
 
 param nodeCount int = 3
 param vmSize string = 'standard_d2s_v3'
