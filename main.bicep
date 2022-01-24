@@ -53,15 +53,15 @@ module privateEndPoint 'Modules/privateEndpoint.bicep' = {
     subnetName: subnetname
   }
 }
-module logAnalytics 'Modules/log-analytics.bicep' = {
-  name: 'log-analytics.bicep'
-  params: {
-    location: location
-    logAnalyticsWorkspaceName: logAnalyticsWorkspaceName
-    logAnalyticsSku: logAnalyticsSku
-    logAnalyticsRetentionInDays: logAnalyticsRetentionInDays
-  }
-}
+// module logAnalytics 'Modules/log-analytics.bicep' = {
+//   name: 'log-analytics.bicep'
+//   params: {
+//     location: location
+//     logAnalyticsWorkspaceName: logAnalyticsWorkspaceName
+//     logAnalyticsSku: logAnalyticsSku
+//     logAnalyticsRetentionInDays: logAnalyticsRetentionInDays
+//   }
+// }
 // module aks 'Modules/aks-cluster.bicep' = {
 //   name: 'aks'
 //   params: {
