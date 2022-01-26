@@ -70,14 +70,14 @@ module akslaworkspace 'Modules/laworkspace.bicep' = {
   // scope: resourceGroup(rg.name)
   name: '${resourcePrefix}akslaworkspace'
   params: {
-    basename: baseName
+    // basename: baseName
   }
 }
 
 module acrDeploy 'Modules/acr.bicep' = {
   // scope: resourceGroup(rg.name)
   name: 'acrDeploy'
-  // params: {
-  //   acrName: acrName
-  // }
+  params: {
+    // acrName: acrName
+  }
 }
