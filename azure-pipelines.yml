@@ -3,7 +3,7 @@ trigger:
 - main
 
 variables:
-  resourceGroupName: 'test-bicep'
+  resourceGroupName: 'eshopondapr-bicep'
   location: 'westeurope'
   azureSubscription: 'azure-azureDevops'
   resourcePrefix: 'bicep'
