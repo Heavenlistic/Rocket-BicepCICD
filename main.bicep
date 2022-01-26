@@ -1,7 +1,7 @@
 targetScope = 'resourceGroup'
 
 //  Parameters
-param baseName string
+param basename string
 param resourcePrefix string
 param virtualNetworkPrefix string
 param currentDate string = utcNow('yyyy-MM-dd')
@@ -11,7 +11,7 @@ param currentDate string = utcNow('yyyy-MM-dd')
 
 // Must be unique name
 var acrName = '${resourcePrefix}-acr'
-var baseName = '${resourcePrefix}-la'
+// var baseName = '${resourcePrefix}-la'
 var subnetname = '${resourcePrefix}-sn'
 var tagValues = {
   CreatedBy: 'BICEPDeployment'
@@ -77,7 +77,7 @@ module akslaworkspace 'Modules/laworkspace.bicep' = {
   // scope: resourceGroup(rg.name)
   name: '${basename}-akslaworkspace'
   params: {
-    basename: baseName
+    basename: basename
   }
 }
 
