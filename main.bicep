@@ -1,7 +1,7 @@
 targetScope = 'resourceGroup'
 
 //  Parameters
-param baseName string 
+// param baseName string 
 param resourcePrefix string
 param virtualNetworkPrefix string
 param currentDate string = utcNow('yyyy-MM-dd')
@@ -77,7 +77,8 @@ module akslaworkspace 'Modules/laworkspace.bicep' = {
   // scope: resourceGroup(rg.name)
   name: '${resourcePrefix}-akslaworkspace'
   params: {
-    basename: baseName
+    // basename: baseName
+    logAnalyticsWorkspaceName
   }
 }
 
