@@ -1,3 +1,6 @@
+targetScope = 'subscription'
+
+//  Parameters
 param resourcePrefix string
 param virtualNetworkPrefix string
 param currentDate string = utcNow('yyyy-MM-dd')
@@ -60,5 +63,21 @@ module akscluster 'Modules/akscluster.bicep' = {
   params: {
     // location: location
     clusterName: resourcePrefix
+  }
+}
+
+module akslaworkspace 'Modules/laworkspace.bicep' = {
+  scope: resourceGroup(rg.name)
+  name: '${resourcePrefix}akslaworkspace'
+  params: {
+    basename: baseName
+  }
+}
+
+module acrDeploy 'Modules/acr.bicep' = {
+  scope: resourceGroup(rg.name)
+  name: 'acrDeploy'
+  params: {
+    acrName: acrName
   }
 }
