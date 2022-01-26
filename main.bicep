@@ -74,7 +74,7 @@ module akscluster 'Modules/akscluster.bicep' = {
 
 module akslaworkspace 'Modules/laworkspace.bicep' = {
   // scope: resourceGroup(rg.name)
-  name: '${resourcePrefix}akslaworkspace'
+  name: '${basename}-akslaworkspace'
   params: {
     basename: baseName
   }
