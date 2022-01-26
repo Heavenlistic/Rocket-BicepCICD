@@ -10,7 +10,7 @@ param currentDate string = utcNow('yyyy-MM-dd')
 // var rgName = '${baseName}-RG'
 
 // Must be unique name
-var acrName = '${resourcePrefix}acr'
+var acrName = '${resourcePrefix}eshopondapracr'
 // var baseName = '${resourcePrefix}-la'
 var subnetname = '${resourcePrefix}-sn'
 var tagValues = {
