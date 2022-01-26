@@ -78,7 +78,7 @@ module akslaworkspace 'Modules/laworkspace.bicep' = {
   name: '${resourcePrefix}-akslaworkspace'
   params: {
     // basename: baseName
-    logAnalyticsWorkspaceName
+    logAnalyticsWorkspaceName: logAnalyticsWorkspaceName 
   }
 }
 
