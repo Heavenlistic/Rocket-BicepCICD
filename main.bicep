@@ -1,10 +1,16 @@
 targetScope = 'resourceGroup'
 
 //  Parameters
+param baseName string
 param resourcePrefix string
 param virtualNetworkPrefix string
 param currentDate string = utcNow('yyyy-MM-dd')
 
+// Variables
+var rgName = '${baseName}-RG'
+
+// Must be unique name
+var acrName = '${resourcePrefix}-acr'
 var subnetname = '${resourcePrefix}-sn'
 var tagValues = {
   CreatedBy: 'BICEPDeployment'
