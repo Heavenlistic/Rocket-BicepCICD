@@ -77,14 +77,14 @@ stages:
         displayName: Run what-if
         inputs:
               azureSubscription: $(azureSubscription) 
-              scriptType: 'bash'
+              scriptType: 'pscore'
               scriptLocation: 'inlineScript'
               inlineScript: |
 
-                az deployment group create what-if \
-                  --resource-group $(ResourceGroupName) \
-                  --template-file $(Build.SourcesDirectory)/main.bicep \
-                  --parameters $(Build.SourcesDirectory)/main.parameters.json \
+                az deployment group create 'what-if' `
+                  --resource-group $(ResourceGroupName) `
+                  --template-file $(Build.SourcesDirectory)/main.bicep `
+                  --parameters $(Build.SourcesDirectory)/main.parameters.json `
                   --parameters resourcePrefix=$(resourceprefix)
                       # az group create --name $(ResourceGroupName) --location $(location) what-if         
 - stage: deploy
