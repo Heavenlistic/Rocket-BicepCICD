@@ -80,9 +80,9 @@ stages:
               scriptType: 'pscore'
               scriptLocation: 'inlineScript'
               inlineScript: |
-                az deployment sub what-if --name 'what-if' `
+                az deployment group what-if --name 'what-if' `
                                             --template-file $(Build.SourcesDirectory)/main.bicep `
-                                            --resource-group $(ResourceGroupName) `
+                                            # --resource-group $(ResourceGroupName) `
                                             --parameters $(Build.SourcesDirectory)/main.parameters.json `
                                             --parameters resourcePrefix=$(resourceprefix)
                                                 # az group create --name $(ResourceGroupName) --location $(location) what-if   

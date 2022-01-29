@@ -1,5 +1,5 @@
-// targetScope = 'resourceGroup'
-targetScope = 'subscription'
+targetScope = 'resourceGroup'
+
 //  Parameters
 param baseName string = 'la'
 param resourcePrefix string
