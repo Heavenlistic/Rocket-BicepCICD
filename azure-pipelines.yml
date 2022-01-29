@@ -81,14 +81,14 @@ stages:
             displayName: 'deploy bicep template'
             inputs:
               azureSubscription: $(azureSubscription) 
-              scriptType: 'pscore'
+              scriptType: 'bash'
               scriptLocation: 'inlineScript'
               inlineScript: |
-                az group create --name $(ResourceGroupName) --location $(location) what-if `
-                az deployment group create what-if  `
-                  --template-file $(Build.SourcesDirectory)/main.bicep `
-                  --parameters $(Build.SourcesDirectory)/main.parameters.json `
-                  --resource-group $(ResourceGroupName) `
+                az group create --name $(ResourceGroupName) --location $(location) what-if \
+                az deployment group create what-if  \
+                  --template-file $(Build.SourcesDirectory)/main.bicep \
+                  --parameters $(Build.SourcesDirectory)/main.parameters.json \
+                  --resource-group $(ResourceGroupName) \
                   --parameters resourcePrefix=$(resourceprefix)
               
 - stage: deploy
