@@ -84,7 +84,7 @@ stages:
               scriptType: 'bash'
               scriptLocation: 'inlineScript'
               inlineScript: |
-                az group create --name $(ResourceGroupName) --location $(location) what-if \
+                az group create --name $(ResourceGroupName) --location $(location) what-if 
                 az deployment group create what-if  \
                   --template-file $(Build.SourcesDirectory)/main.bicep \
                   --parameters $(Build.SourcesDirectory)/main.parameters.json \
