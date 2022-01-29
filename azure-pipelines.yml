@@ -83,11 +83,12 @@ stages:
                 az deployment group what-if --name 'what-if' `
                                             --template-file $(Build.SourcesDirectory)/main.bicep `
                                             --parameters $(Build.SourcesDirectory)/main.parameters.json `
+                                            --resource-group $(ResourceGroupName) `
                                             --parameters resourcePrefix=$(resourceprefix)
                                                 # az group create --name $(ResourceGroupName) --location $(location) what-if   
                                                 # az deployment group create 'what-if' `      
 
-                                            # --resource-group $(ResourceGroupName) `
+
 - stage: deploy
   jobs:
   - deployment: biceptoAzure
