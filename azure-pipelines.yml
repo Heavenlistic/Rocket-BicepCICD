@@ -21,7 +21,27 @@ stages:
       - script: |
           az bicep build --file deploy/main.bicep
         name: LintBicepCode
-        displayName: Run Bicep linter
+        displayName: Run Bicep linter        
+          
+        
+- stage: Build
+  jobs:
+  - job: Build
+    steps:
+    - task: AzureCLI@2  
+      displayName: 'build bicep artifact' 
+      inputs: 
+        azureSubscription: $(azureSubscription) 
+        scriptType: 'pscore'  
+        scriptLocation: 'inlineScript'  
+        inlineScript: 'az bicep build --file main.bicep'  
+
+    - task: PublishBuildArtifacts@1 
+      displayName: 'Publish artifact in pipeline' 
+      inputs: 
+        PathtoPublish: '$(Build.SourcesDirectory)/main.json'  
+        ArtifactName: 'finishedTemplate'  
+        publishLocation: 'Container' 
 
 
 
@@ -43,27 +63,7 @@ stages:
               --template-file $(Build.SourcesDirectory)/main.bicep `
               --parameters $(Build.SourcesDirectory)/main.parameters.json `
               --resource-group $(ResourceGroupName) `
-              --parameters resourcePrefix=$(resourceprefix)          
-          
-        
-- stage: Build
-  jobs:
-  - job: Build
-    steps:
-    - task: AzureCLI@2  
-      displayName: 'build bicep artifact' 
-      inputs: 
-        azureSubscription: $(azureSubscription) 
-        scriptType: 'pscore'  
-        scriptLocation: 'inlineScript'  
-        inlineScript: 'az bicep build --file main.bicep'  
-
-    - task: PublishBuildArtifacts@1 
-      displayName: 'Publish artifact in pipeline' 
-      inputs: 
-        PathtoPublish: '$(Build.SourcesDirectory)/main.json'  
-        ArtifactName: 'finishedTemplate'  
-        publishLocation: 'Container' 
+              --parameters resourcePrefix=$(resourceprefix)  
 
 - stage: deploy
   jobs:
