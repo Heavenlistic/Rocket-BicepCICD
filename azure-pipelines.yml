@@ -23,7 +23,7 @@ stages:
         name: LintBicepCode
         displayName: Run Bicep linter
 
-        
+
 
 - stage: Validate
   jobs: 
@@ -39,7 +39,7 @@ stages:
           scriptLocation: 'inlineScript'
           inlineScript: |
           az deployment group validate  ` 
-          az group create --name $(ResourceGroupName) --location $(location)
+          az group create --name $(ResourceGroupName) --location $(location) `
               --template-file $(Build.SourcesDirectory)/main.bicep `
               --parameters $(Build.SourcesDirectory)/main.parameters.json `
               --resource-group $(ResourceGroupName) `
