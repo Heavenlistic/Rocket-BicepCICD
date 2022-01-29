@@ -59,11 +59,11 @@ stages:
           scriptLocation: 'inlineScript'
           inlineScript: |
           az deployment group validate  ` 
-          az group create --name $(ResourceGroupName) --location $(location) validate `
-              --template-file $(Build.SourcesDirectory)/main.bicep `
-              --parameters $(Build.SourcesDirectory)/main.parameters.json `
-              --resource-group $(ResourceGroupName) `
-              --parameters resourcePrefix=$(resourceprefix)  
+          # az group create --name $(ResourceGroupName) --location $(location) validate `
+            --template-file $(Build.SourcesDirectory)/main.bicep `
+            --parameters $(Build.SourcesDirectory)/main.parameters.json `
+            --resource-group $(ResourceGroupName) `
+            --parameters resourcePrefix=$(resourceprefix)  
 
 - stage: deploy
   jobs:
