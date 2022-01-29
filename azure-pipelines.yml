@@ -13,15 +13,15 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-- stage: Lint
-  jobs: 
-  - job: LintCode
-    displayName: Lint code
-    steps:
-      - script: |
-          'az bicep build --file main.bicep'  
-        name: LintBicepCode
-        displayName: Run Bicep linter        
+# - stage: Lint
+#   jobs: 
+#   - job: LintCode
+#     displayName: Lint code
+#     steps:
+#       - script: |
+#           'az bicep build --file main.bicep'  
+#         name: LintBicepCode
+#         displayName: Run Bicep linter        
           
         
 - stage: Build
