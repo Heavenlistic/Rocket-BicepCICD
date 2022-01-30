@@ -52,8 +52,7 @@ stages:
               --resource-group $(ResourceGroupName) `
               --template-file $(Build.SourcesDirectory)/main.bicep `
               --parameters $(Build.SourcesDirectory)/main.parameters.json `
-
-              --parameters resourcePrefix=$(resourceprefix)  
+              --parameters resourcePrefix=$(resourceprefix)
 
 
 - stage: Preview
