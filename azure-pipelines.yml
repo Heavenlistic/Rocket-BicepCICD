@@ -4,8 +4,7 @@ trigger:
 - feature/main
 
 variables:
-  # resourceGroupName: 'eshopondapr-bicep'
-  resourceGroupName: ''
+  resourceGroupName: 'eshopondapr-bicep'
   location: 'westeurope'
   azureSubscription: 'azure-azureDevops'
   resourcePrefix: 'bicep'
@@ -81,6 +80,7 @@ stages:
               scriptType: 'pscore'
               scriptLocation: 'inlineScript'
               inlineScript: |
+                az group create --name $(ResourceGroupName) --location $(location)            
                 az deployment group what-if --name 'what-if' `
                                             --template-file $(Build.SourcesDirectory)/main.bicep `
                                             --parameters $(Build.SourcesDirectory)/main.parameters.json `
