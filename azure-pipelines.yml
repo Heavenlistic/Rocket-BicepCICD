@@ -1,6 +1,7 @@
 name: Bicep-StorageAccount-PrivateEndpoint
 trigger:
 - main
+- feature/main
 
 variables:
   resourceGroupName: 'eshopondapr-bicep'
@@ -31,6 +32,50 @@ stages:
         ArtifactName: 'finishedTemplate'  
         publishLocation: 'Container' 
 
+
+
+# - stage: Validate
+#   jobs: 
+#   - job: ValidateBicepCode
+#     displayName: Validate Bicep code
+#     steps:
+#       - task: AzureCLI@2
+#         name: RunPreflightValidation
+#         displayName: Run preflight validation
+#         inputs:
+#           azureSubscription: $(azureSubscription) 
+#           scriptType: 'pscore'
+#           scriptLocation: 'inlineScript'
+#           inlineScript: |
+#             az deployment group validate  `
+#                             --resource-group $(ResourceGroupName) `
+#                             --template-file $(Build.SourcesDirectory)/main.bicep `
+#                             --parameters $(Build.SourcesDirectory)/main.parameters.json `
+#                             --parameters resourcePrefix=$(resourceprefix)
+#                             # az group create --name $(ResourceGroupName) --location $(location) validate  `
+
+- stage: Preview
+  jobs: 
+  - job: PreviewAzureChanges
+    displayName: Preview Azure changes
+    steps:
+      - task: AzureCLI@2
+        name: RunWhatIf
+        displayName: Run what-if
+        inputs:
+              azureSubscription: $(azureSubscription) 
+              scriptType: 'pscore'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                az group create --name $(ResourceGroupName) --location $(location)            
+                az deployment group what-if --name 'what-if' `
+                                            --template-file $(Build.SourcesDirectory)/main.bicep `
+                                            --parameters $(Build.SourcesDirectory)/main.parameters.json `
+                                            --resource-group $(ResourceGroupName) `
+                                            --parameters resourcePrefix=$(resourceprefix)
+
+
+
 - stage: deploy
   jobs:
   - deployment: biceptoAzure
@@ -48,9 +93,9 @@ stages:
               scriptType: 'pscore'
               scriptLocation: 'inlineScript'
               inlineScript: |
-                az group create --name $(ResourceGroupName) --location $(location)
-                az deployment group create  `
-                --template-file $(Build.SourcesDirectory)/main.bicep `
-                --parameters $(Build.SourcesDirectory)/main.parameters.json `
-                --resource-group $(ResourceGroupName) `
-                --parameters resourcePrefix=$(resourceprefix)
+                az group create --name $(ResourceGroupName) --location $(location) 
+                az deployment group create `
+                        --template-file $(Build.SourcesDirectory)/main.bicep `
+                        --parameters $(Build.SourcesDirectory)/main.parameters.json `
+                        --resource-group $(ResourceGroupName) `
+                        --parameters resourcePrefix=$(resourceprefix)
