@@ -73,8 +73,7 @@ stages:
                                             --parameters $(Build.SourcesDirectory)/main.parameters.json `
                                             --resource-group $(ResourceGroupName) `
                                             --parameters resourcePrefix=$(resourceprefix)
-                                                # az group create --name $(ResourceGroupName) --location $(location) what-if   
-                                                # az deployment group create 'what-if' `      
+
 
 
 - stage: deploy
@@ -100,18 +99,3 @@ stages:
                         --parameters $(Build.SourcesDirectory)/main.parameters.json `
                         --resource-group $(ResourceGroupName) `
                         --parameters resourcePrefix=$(resourceprefix)
-
-                #       inlineScript: |
-                # az group create --name $(ResourceGroupName) --location $(location)            
-                # az deployment group what-if --name 'what-if' `
-                #                             --template-file $(Build.SourcesDirectory)/main.bicep `
-                #                             --parameters $(Build.SourcesDirectory)/main.parameters.json `
-                #                             --resource-group $(ResourceGroupName) `
-                #                             --parameters resourcePrefix=$(resourceprefix)
-                #                                 # az group create --name $(ResourceGroupName) --location $(location) what-if   
-                #                                 # az deployment group create 'what-if' `                
-  #               az deployment group create \
-  # --name ExampleDeployment \
-  # --resource-group ExampleGroup \
-  # --template-file <path-to-template> \
-  # --parameters storageAccountType=Standard_GRS
