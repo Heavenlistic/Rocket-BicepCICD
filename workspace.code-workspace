@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../terraform/guideproject"
+		},
+		{
+			"path": "../terraform/DaprProject"
+		},
+		{
+			"path": "../../kubernetes-crash-course-master"
+		},
+		{
+			"path": "../../azure-landingzones"
+		},
+		{
+			"path": "../eShopOnDapr"
+		}
+	],
+	"settings": {}
+}
