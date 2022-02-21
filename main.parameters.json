@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "resourcePrefix": {
-            "value": "icepp"
+            "value": "bicep"
         },
         "virtualNetworkPrefix": {
             "value": "10.0.0.0/16"
