@@ -4,7 +4,7 @@ trigger:
 - feature/main
 
 variables:
-  resourceGroupName: 'eshopondapr-bicep2'
+  resourceGroupName: 'eshopondapr-bicep3'
   location: 'westeurope'
   azureSubscription: 'azure-azureDevops'
   resourcePrefix: 'bicep'
