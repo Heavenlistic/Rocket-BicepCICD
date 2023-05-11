@@ -2,7 +2,7 @@ targetScope = 'resourceGroup'
 
 //  Parameters
 param baseName string = 'la'
-param location string = 'westeurope'
+param location string = 'canadacentral'
 param resourcePrefix string
 param virtualNetworkPrefix string
 param currentDate string = utcNow('yyyy-MM-dd')
