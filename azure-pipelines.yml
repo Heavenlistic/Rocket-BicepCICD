@@ -1,7 +1,7 @@
 name: Bicep-StorageAccount-PrivateEndpoint
 trigger:
 - main
-- testrun1
+
 
 
 variables:
