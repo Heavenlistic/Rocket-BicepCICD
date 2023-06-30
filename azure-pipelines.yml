@@ -1,13 +1,14 @@
 name: Bicep-StorageAccount-PrivateEndpoint
 trigger:
 - main
-- feature/main
+- testrun1
+
 
 variables:
-  resourceGroupName: 'eshopondapr-bicep3'
+  resourceGroupName: 'spacerocketship'
   location: 'canadacentral'
-  azureSubscription: 'azure-azureDevops'
-  resourcePrefix: 'bicep'
+  azureSubscription: 'sparkleuyo-azure'
+  resourcePrefix: 'rocketship'
 
 pool:
   vmImage: ubuntu-latest

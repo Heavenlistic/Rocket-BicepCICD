@@ -1,20 +1,13 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+To deploy resources using modules and Pipeline
+1. Created a manual service connection in Azure Devops
+2. in the azure-pipelines.yml, updated the azureSubscription on line 10 
+3. In the akscluster.bicep, updated param nodeCount int from 3 to 1 
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+Commands
+1. git init >  git add . > git commit -m "initial commit" 
+2. git remote add origin (git link) 
+   git branch -M main 
+   git push -u origin --all
+3. git add . > git commit -m "Second commit > git push (for updated changes)
