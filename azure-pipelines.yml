@@ -6,7 +6,7 @@ trigger:
 
 variables:
   resourceGroupName: 'spacerocketship'
-  location: 'canadacentral'
+  location: 'westus'
   azureSubscription: 'sparkleuyo-azure'
   resourcePrefix: 'rocketship'
 
